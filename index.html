@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GeCaBlog</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <style>
+    :root {
+      --accent: #d4a55c;
+      --text-light: #f4f4f4;
+      --bg-dark: #1a1a1a;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      font-family: "Inter", sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    header picture img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.8);
+    }
+
+    .header-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .header-overlay img {
+      width: 280px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    main {
+      background: #222;
+      padding: 4rem 2rem;
+    }
+
+    section {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    section h2 {
+      color: var(--accent);
+    }
+
+    section p {
+      line-height: 1.6;
+      color: #eee;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      background: rgba(0,0,0,0.8);
+      color: var(--text-light);
+      font-size: 1.1rem;
+    }
+
+    footer small {
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .header-overlay img {
+        width: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <picture>
+      <source media="(max-width: 768px)" srcset="header-mobile.png">
+      <img src="header-desktop.png" alt="GeCaBlog Hintergrund">
+    </picture>
+    <div class="header-overlay">
+      <img src="gecablog-logo-desktop.svg" alt="GeCaBlog Logo" id="logo-desktop">
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="ueber-uns">
+      <h2>Über uns</h2>
+      <p>Hey, wir sind Gero und Carsten. Wir möchten euch unser Leitbild „Mensch ist Mensch“ näherbringen. Wir schreiben über Themen, die unsere Gesellschaft prägen – mit Herz, Mut und Tiefgang.</p>
+    </section>
+
+    <section id="vision">
+      <h2>Unsere Vision</h2>
+      <p>Unser Ziel ist es, zum Nachdenken anzuregen, Denkmuster zu hinterfragen und Empathie zu fördern. Wir wollen Diskussionen auf Augenhöhe – für mehr Verständnis und Miteinander.</p>
+    </section>
+
+    <section id="artikel">
+      <h2>Artikelvorschau</h2>
+      <p>Hier erscheinen bald unsere neuesten Beiträge. Jeder Artikel wird mit Bild, Datum und einer kleinen Vorschau angezeigt.</p>
+    </section>
+
+    <section id="kontakt">
+      <h2>Kontakt</h2>
+      <p>Mitdenken, Anregungen, Kritik? Schreib uns!</p>
+      <form onsubmit="event.preventDefault(); alert('Nachricht erfolgreich gesendet an demokratieappx25@proton.me');">
+        <input type="email" placeholder="Deine E-Mail-Adresse" required>
+        <textarea rows="5" placeholder="Deine Nachricht" required></textarea>
+        <button type="submit">Senden</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <small>Danke für deinen Besuch. Sehen wir uns wieder? :)</small>
+  </footer>
+
+  <script>
+    const logo = document.getElementById('logo-desktop');
+    function updateLogo() {
+      if (window.innerWidth < 768) {
+        logo.src = "gecablog-logo-mobile.svg";
+      } else {
+        logo.src = "gecablog-logo-desktop.svg";
+      }
+    }
+    window.addEventListener('resize', updateLogo);
+    updateLogo();
+  </script>
+
+</body>
+</html>

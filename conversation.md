@@ -1,0 +1,1 @@
+Der Nutzer möchte eine Website mit Header und Textbereichen, inklusive responsivem Design für Desktop und Mobile, Platzhaltern für DALL·E-generierte Bilder und Logo-Dateien. Ziel ist der Aufbau des GeCaBlog-Projekts mit HTML, CSS, JS Grundstruktur.
